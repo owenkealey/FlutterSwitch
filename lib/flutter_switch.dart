@@ -310,16 +310,16 @@ class _FlutterSwitchState extends State<FlutterSwitch>
     return AnimatedBuilder(
       animation: _animationController,
       builder: (context, child) {
-        return Align(
-          child: GestureDetector(
-            onTap: () {
-              if (widget.value)
-                _animationController.forward();
-              else
-                _animationController.reverse();
+        return GestureDetector(
+          onTap: () {
+            if (widget.value)
+              _animationController.forward();
+            else
+              _animationController.reverse();
 
-              widget.onToggle(!widget.value);
-            },
+            widget.onToggle(!widget.value);
+          },
+          child: Align(
             child: Container(
               width: widget.width,
               height: widget.height,
@@ -346,9 +346,17 @@ class _FlutterSwitchState extends State<FlutterSwitch>
                       width: widget.toggleSize,
                       height: widget.toggleSize,
                       decoration: BoxDecoration(
-                        shape: BoxShape.circle,
+                        borderRadius: BorderRadius.circular(8),
                         color: _toggleColor ?? Colors.white,
                         border: _toggleBorder,
+                        shadow: [
+                          BoxShadow(
+                            color: Theme.of(context).accentColor.withOpacity(.1),
+                            offset: Offset(0,2),
+                            blurRadius: 4,
+                            spreadRadius: 1
+                          )
+                        ]
                       ),
                       child: _icon,
                     ),
