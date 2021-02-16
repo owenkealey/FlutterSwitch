@@ -349,7 +349,7 @@ class _FlutterSwitchState extends State<FlutterSwitch>
                         borderRadius: BorderRadius.circular(8),
                         color: _toggleColor ?? Colors.white,
                         border: _toggleBorder,
-                        shadow: [
+                        boxShadow: [
                           BoxShadow(
                             color: Theme.of(context).accentColor.withOpacity(.1),
                             offset: Offset(0,2),
